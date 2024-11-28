@@ -37,12 +37,22 @@ const InvoicePage = async ({ params }: { params: { invoiceId: string } }) => {
   console.log('PARAMS:', params)
 
 
-  const [result] = await db.select().from(Invoices).innerJoin(Customers, eq(Invoices.customerId, Customers.id)).where(
-    eq(Invoices.id, invoiceId),
-    eq(Invoices.userId, userId)
-  ).limit(1)
+  // const [result] = await db.select().from(Invoices).innerJoin(Customers, eq(Invoices.customerId, Customers.id)).where(
+  //   eq(Invoices.id, invoiceId),
+  //   eq(Invoices.userId, userId)
+  // ).limit(1)
 
 
+  let [result]: Array<{
+    invoices: typeof Invoices.$inferSelect;
+    customers: typeof Customers.$inferSelect;
+  }> = await db
+    .select()
+    .from(Invoices)
+    .innerJoin(Customers, eq(Invoices.customerId, Customers.id))
+    .limit(1)
+
+    
   if (!result) {
     notFound()
   }
@@ -118,7 +128,7 @@ const InvoicePage = async ({ params }: { params: { invoiceId: string } }) => {
         </div>
       </div>
       <p className="text-3xl font-semibold mb-3">${(result.invoices.value / 100).toFixed(2)}</p>
-      <p className="text-lg mb-8 text-gray-700">{result.description}</p>
+      <p className="text-lg mb-8 text-gray-700">{result.invoices.description}</p>
       <h2 className="text-lg font-bold mb-4">Billing Details</h2>
       <ul className="grid gap-4">
         <li className="flex gap-4">
