@@ -29,8 +29,7 @@ export async function createAction(formData: FormData) {
   const email = formData.get("email") as string;
 
 
-  const [customer] = await db.insert(Customers)
-  .values({
+  const [customer] = await db.insert(Customers).values({
     name,
     email,
     userId,
