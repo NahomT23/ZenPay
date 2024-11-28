@@ -79,10 +79,6 @@ export async function updateStatusAction(formData: FormData) {
     .set({ status })
     .where(and(eq(Invoices.id, parseInt(id)), eq(Invoices.userId, userId)))
 
-  if (results.count === 0) {
-    throw new Error("Invoice not found or user does not have permission to update the status.")
-  }
-
   revalidatePath(`/invoices/${id}`)
   console.log(`Status updated to: ${status} for invoice ${id}`)
 }
@@ -107,9 +103,6 @@ export async function deleteInvoiceAction(formData: FormData) {
     and(eq(Invoices.id, invoiceId), eq(Invoices.userId, userId))
   )
 
-  if (result.count === 0) {
-    throw new Error("Invoice not found or user does not have permission to delete.")
-  }
 
   revalidatePath(`/invoices`)
   redirect('/dashboard')
