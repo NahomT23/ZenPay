@@ -7,7 +7,7 @@ import { Invoices, Status, Customers } from "@/db/schema"
 import { auth } from "@clerk/nextjs/server"
 import { and, eq } from "drizzle-orm"
 import Stripe from 'stripe'
-import { Resend } from "resend";
+
 import { headers } from "next/headers";
 
 
@@ -119,7 +119,7 @@ export async function deleteInvoiceAction(formData: FormData) {
 
 export async function createPayment(formData: FormData) {
   // Payments disabled for demo
-  const { userId } = auth();
+  const { userId } = await auth();
   if ( userId !== process.env.ME_ID ) return;
 
   const headersList = headers();
