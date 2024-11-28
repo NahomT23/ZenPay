@@ -19,14 +19,15 @@ export async function createAction(formData: FormData) {
   const { userId } = await auth();
 
 
-  // if (!userId) {
-  //   return;
-  // }
+  if (!userId) {
+    return;
+  }
 
   const value = Math.floor(parseFloat(String(formData.get("value"))) * 100,);
   const description = formData.get("description") as string;
   const name = formData.get("name") as string;
   const email = formData.get("email") as string;
+
 
 
   const [customer] = await db.insert(Customers).values({
