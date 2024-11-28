@@ -63,7 +63,7 @@ const InvoicePage = async ({ params }: { params: { invoiceId: string } }) => {
           <Badge
             className={cn(
               "rounded-full capitalize px-4 py-1 text-white text-sm",
-              result.invoices.status .status === "open" && "bg-blue-500",
+              result.invoices.status === "open" && "bg-blue-500",
               result.invoices.status === "paid" && "bg-green-600",
               result.invoices.status === "void" && "bg-zinc-700",
               result.invoices.status === "uncollectable" && "bg-red-600"

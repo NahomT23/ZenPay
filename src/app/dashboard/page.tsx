@@ -58,10 +58,10 @@ const Dashboard = async () => {
                 <Link href={`/invoices/${result.invoices.id}`} className="p-4">
                           <Badge className={cn(
             'rounded-full',
-            result.status === 'open' && 'bg-blue-500',
-            result.status === 'paid' && 'bg-green-600',
-            result.status === 'void' && 'bg-zinc-700',
-            result.status === 'uncollectable' && 'bg-red-600',
+            result.invoices.status === 'open' && 'bg-blue-500',
+            result.invoices.status === 'paid' && 'bg-green-600',
+            result.invoices.status === 'void' && 'bg-zinc-700',
+            result.invoices.status === 'uncollectable' && 'bg-red-600',
         )}>
            {result.invoices.status}
         </Badge>
