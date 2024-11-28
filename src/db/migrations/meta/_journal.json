@@ -1,0 +1,48 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1732627125209,
+      "tag": "0000_lyrical_xorn",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1732646735553,
+      "tag": "0001_tan_omega_red",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1732649484671,
+      "tag": "0002_overconfident_blur",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1732649862735,
+      "tag": "0003_brown_prima",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1732698751519,
+      "tag": "0004_massive_captain_cross",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1732700293804,
+      "tag": "0005_ancient_squadron_sinister",
+      "breakpoints": true
+    }
+  ]
+}
